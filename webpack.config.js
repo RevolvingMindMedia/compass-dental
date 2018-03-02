@@ -1,3 +1,4 @@
+var webpack = require('webpack');
 module.exports = {
   entry: {
     app: './src/js/app.js',
@@ -59,12 +60,31 @@ module.exports = {
             options: {}
           },
           {
+			loader: 'postcss-loader', // Run post css actions
+			options: {
+			  plugins: function () { // post css plugins, can be exported to postcss.config.js
+				return [
+				  require('precss'),
+				  require('autoprefixer')
+				];
+			  }
+			}
+		  },
+          {
             loader: 'sass-loader',
             options: {}
           }
         ]
       }
     ]
-  }
+  },
+  plugins: [
+    new webpack.ProvidePlugin({
+      $: 'jquery',
+      jQuery: 'jquery',
+      jquery: 'jquery',
+      Popper: ['popper.js', 'default']
+    })
+  ]
 }
 

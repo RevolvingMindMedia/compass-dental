@@ -1,0 +1,225 @@
+@import "custom";
+@import "~bootstrap/scss/bootstrap";
+
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+}
+
+p {
+}
+
+h1 {
+}
+
+h2 {
+}
+
+h3 {
+}
+
+h4 {
+}
+
+h5 {
+}
+
+h6 {
+}
+
+.button {
+    @extend .btn;
+    @extend .btn-primary;
+}
+
+.vertical-container {
+    display: table;
+    width: 100%;
+    height: 100%;
+
+    &-child {
+        display: table-cell;
+        vertical-align: middle;
+        width: 100%;
+        height: 100%;
+    }
+}
+
+header {
+
+    .top-menu {
+        @extend .container-fluid;
+        @extend .row;
+
+        margin: 10px;
+
+        .contact {
+            @extend .col;
+
+            .locations-summary {
+
+                ul {
+                    @extend .list-unstyled;
+
+                    li {
+
+
+                        &:not(:last-child):after {
+                            content: "";
+                            display: block;
+                            height: 1px;
+                            width: 90%;
+                            margin: 10px;
+                            background: #eee;
+                        }
+
+                            .location {
+                                display: inline-block;
+                            }
+
+                            .phone-number {
+                                display: inline-block;
+                            }
+
+                            .hours {
+                                display: inline-block;
+                            }
+                    }
+                }
+            }
+        }
+
+        .branding {
+            @extend .col;
+            text-align: center;
+
+            h1 {
+                display: inline;
+            }
+        }
+
+        .social-menu {
+            @extend .col;
+            ul {
+                @extend .list-inline;
+                float: right;
+
+                li {
+                    @extend .list-inline-item;
+                }
+            }
+        }
+    }
+
+    nav {
+        text-align: center;
+
+        ul {
+            @extend .list-inline;
+
+            li {
+                @extend .list-inline-item;
+            }
+        }
+    }
+}
+
+main {
+    position: relative;
+    background: url(../images/smiling-woman.jpg) no-repeat center center;
+    background-size: cover;
+    height: 100%;
+    width: 100%;
+
+    .heading {
+        @extend .col-6;
+        @extend .offset-md-6;
+        @extend .offset-lg-6;
+        @extend .offset-xl-6;
+    }
+}
+
+footer {
+    @extend .container-fluid;
+
+    .footer-title {
+        margin: 25px;
+    }
+
+    .footer-content {
+        @extend .row;
+        margin: 0 25px;
+
+        .locations-summary {
+            @extend .col-9;
+
+            ul {
+                @extend .list-inline;
+                columns: 2;
+
+                li {
+                    @extend .list-inline-item;
+
+                    &:nth-child(odd) {
+                        display: block;
+
+                        &:after {
+                            content: "";
+                            display: block;
+                            height: 1px;
+                            width: 90%;
+                            margin: 10px;
+                            background: #eee;
+                        }
+                    }
+
+                    .location {
+                        display: inline-block;
+                    }
+
+                    .phone-number {
+                        display: inline-block;
+                    }
+                }
+            }
+        }
+
+        .social-menu {
+            @extend .col-3;
+
+            ul {
+                @extend .list-inline;
+                float: right;
+
+                li {
+                    @extend .list-inline-item;
+                }
+            }
+        }
+
+        .sitemap {
+            @extend .col-12;
+            text-align: center;
+
+            ul {
+                @extend .list-inline;
+
+                li {
+                    @extend .list-inline-item;
+
+                    &:not(:last-child) {
+                        margin-right: 50px;
+                    }
+                }
+            }
+        }
+    }
+
+    .copyright {
+        margin: 25px;
+        text-align: center;
+    }
+}
+
