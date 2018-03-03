@@ -3,7 +3,7 @@ require('../scss/main.scss');
 require('font-awesome/css/font-awesome.css');
 
 // JS dependencies
-import 'jquery';
+//import 'jquery';
 import 'bootstrap';
 import 'popper.js';
 
