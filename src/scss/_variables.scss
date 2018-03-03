@@ -1,0 +1,17 @@
+@import '~bootstrap/scss/functions';
+@import '~bootstrap/scss/variables';
+
+// Bootstrap Customizations
+
+$headings-color: $gray-700;
+$body-color: $gray-600;
+
+$font-size-heading-base: 12px;
+
+$h1-font-size: calc(#{$font-size-heading-base} + 2.5vmax);
+$h2-font-size: calc(#{$font-size-heading-base} + 2vmax);
+$h3-font-size: calc(#{$font-size-heading-base} + 1.75vmax);
+$h4-font-size: calc(#{$font-size-heading-base} + 1.5vmax);
+$h5-font-size: calc(#{$font-size-heading-base} + 1.25vmax);
+$h6-font-size: calc(#{$font-size-heading-base} + 1vmax);
+
