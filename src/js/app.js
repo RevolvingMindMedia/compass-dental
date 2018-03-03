@@ -8,19 +8,25 @@ import 'bootstrap';
 import 'popper.js';
 
 import logo from '../images/logo.png';
-document.getElementById('logo').src = logo;
+$('#logo').attr('src', logo);
+
+import icon from '../images/icon.png';
+$('[rel="icon"]').attr('href', icon);
 
 $('#popover-content-location-info').hide();
-$('#popover-location-info').popover({
+$('[data-toggle="popover"]').popover({
   container: 'body',
   html: true,
-  trigger: 'click',
+  trigger: 'manual',
   placement: 'bottom',
   content: $('#popover-content-location-info').html()
 });
 
-$('.close').click(function() {
-  alert('clicked');
-  $('#popover-location-info').popover('hide');
+$('[data-toggle="popover"]').click(function(e) {
+  $('[data-toggle="popover"]').popover('toggle');
+});
+
+$(document).on('click', '.popover .close', function() {
+  $('[data-toggle="popover"]').popover('hide');
 });
 
