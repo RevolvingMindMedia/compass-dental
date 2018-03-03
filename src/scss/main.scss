@@ -1,4 +1,5 @@
 @import "custom";
+@import "mixins";
 @import "~bootstrap/scss/bootstrap";
 
 html, body {
@@ -6,32 +7,27 @@ html, body {
     padding: 0;
     height: 100%;
     width: 100%;
+    @include body-font;
 }
 
 p {
 }
 
-h1 {
-}
-
-h2 {
-}
-
-h3 {
-}
-
-h4 {
-}
-
-h5 {
-}
-
+h1,
+h2,
+h3,
+h4,
+h5,
 h6 {
+    @include heading-font;
+//  color: $primary;
+    font-weight: 400;
+    letter-spacing: 1px;
 }
 
 .button {
     @extend .btn;
-    @extend .btn-primary;
+    @extend .btn-outline-primary;
 }
 
 .vertical-container {
@@ -58,56 +54,36 @@ header {
         .contact {
             @extend .col;
 
-            .locations-summary {
-
-                ul {
-                    @extend .list-unstyled;
-
-                    li {
-
-
-                        &:not(:last-child):after {
-                            content: "";
-                            display: block;
-                            height: 1px;
-                            width: 90%;
-                            margin: 10px;
-                            background: #eee;
-                        }
-
-                            .location {
-                                display: inline-block;
-                            }
-
-                            .phone-number {
-                                display: inline-block;
-                            }
-
-                            .hours {
-                                display: inline-block;
-                            }
-                    }
-                }
+            .button {
+                @extend .btn-lg;
             }
+
         }
 
         .branding {
             @extend .col;
             text-align: center;
 
-            h1 {
-                display: inline;
+            #logo {
+                height: 100px;
+                width: auto;
             }
         }
 
         .social-menu {
             @extend .col;
+            margin-right: 25px;
+
             ul {
                 @extend .list-inline;
                 float: right;
 
                 li {
                     @extend .list-inline-item;
+
+                    &:not(:last-child) {
+                        margin-right: 25px;
+                    }
                 }
             }
         }
@@ -121,6 +97,20 @@ header {
 
             li {
                 @extend .list-inline-item;
+                font-size: 25px;
+
+                &:not(:last-child) {
+                    &:after {
+                        content: "";
+                        display: inline-block;
+                        border-radius: 0.25rem;
+                        height: 0.5rem;
+                        width: 0.5rem;
+                        margin-right: 5px;
+                        margin-left: 15px;
+                        background: #ccc;
+                    }
+                }
             }
         }
     }
@@ -138,6 +128,14 @@ main {
         @extend .offset-md-6;
         @extend .offset-lg-6;
         @extend .offset-xl-6;
+
+        h1 {
+            margin-bottom: 25px;
+        }
+
+        .button {
+            @extend .btn-lg;
+        }
     }
 }
 
@@ -177,6 +175,8 @@ footer {
 
                     .location {
                         display: inline-block;
+                        font-weight: 400;
+
                     }
 
                     .phone-number {
@@ -202,6 +202,7 @@ footer {
         .sitemap {
             @extend .col-12;
             text-align: center;
+            margin-top: 25px;
 
             ul {
                 @extend .list-inline;
@@ -211,6 +212,14 @@ footer {
 
                     &:not(:last-child) {
                         margin-right: 50px;
+
+                        &:after {
+                            content: "";
+                            height: 1px;
+                            width: 90%;
+                            margin: 10px;
+                            background: #eee;
+                        }
                     }
                 }
             }
@@ -223,3 +232,34 @@ footer {
     }
 }
 
+.popover {
+    .locations-summary{
+        ul {
+            @extend .list-unstyled;
+
+            li {
+
+                &:not(:last-child):after {
+                    content: "";
+                    display: block;
+                    height: 1px;
+                    width: 90%;
+                    margin: 10px;
+                    background: #eee;
+                }
+
+                .location {
+                    display: inline-block;
+                }
+
+                .phone-number {
+                    display: inline-block;
+                }
+
+                .hours {
+                    display: inline-block;
+                }
+            }
+        }
+    }
+}

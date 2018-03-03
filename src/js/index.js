@@ -2,12 +2,17 @@ import logo from '../images/logo.png';
 document.getElementById('logo').src = logo;
 
 import popover from 'bootstrap/js/src/popover';
-$('header .locations-summary').hide();
+$('#popover-content-location-info').hide();
 $('#popover-location-info').popover({
   container: 'body',
   html: true,
-  trigger: 'hover',
+  trigger: 'click',
   placement: 'bottom',
-  content: $('header .locations-summary').html()
+  content: $('#popover-content-location-info').html()
+});
+
+$('.close').click(function() {
+  alert('clicked');
+  $('#popover-location-info').popover('hide');
 });
 
