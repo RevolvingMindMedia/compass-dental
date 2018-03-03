@@ -28,7 +28,7 @@ h4,
 h5,
 h6 {
     @include heading-font;
-//  color: $primary;
+    color: $headings-color;
     font-weight: 400;
     letter-spacing: 1px;
 }
@@ -275,6 +275,10 @@ footer {
 
                 .location {
                     display: inline-block;
+
+                    a {
+                        font-weight: 500;
+                    }
                 }
 
                 .phone-number {
