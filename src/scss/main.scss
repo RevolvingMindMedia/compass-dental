@@ -254,6 +254,10 @@ footer {
     .copyright {
         margin: 20px;
         text-align: center;
+
+        small {
+            color: $body-color;
+        }
     }
 }
 
