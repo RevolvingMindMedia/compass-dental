@@ -22,11 +22,16 @@ $('[data-toggle="popover"]').popover({
   content: $('#popover-content-location-info').html()
 });
 
-$('[data-toggle="popover"]').click(function(e) {
-  $('[data-toggle="popover"]').popover('toggle');
-});
+$(document).on('click', function(e) {
+  var target = e.target;
 
-$(document).on('click', '.popover .close', function() {
-  $('[data-toggle="popover"]').popover('hide');
+  if ($('[data-toggle="popover"]').is(target)) {
+    $('[data-toggle="popover"]').popover('toggle');
+  }
+  else if ((!$('.popover').is(target)
+          && $('.popover').has(target).length === 0)
+          || $('.popover .close').has(target).length > 0) {
+    $('[data-toggle="popover"]').popover('hide');
+  }
 });
 
