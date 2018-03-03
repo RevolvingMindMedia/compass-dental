@@ -56,18 +56,26 @@ h6 {
 header {
     @extend .container;
 
+    @include media-breakpoint-down(md) {
+        width: 100%;
+        max-width: none;
+    }
+
     .top-menu {
         @extend .row;
 
         margin-top: 15px;
 
-        .contact {
-            @extend .col-3;
-        }
-
         .branding {
-            @extend .col-6;
+            @extend .col-12;
+            @extend .col-sm-6;
+            @extend .order-sm-2;
+
             text-align: center;
+
+            @include media-breakpoint-down(md) {
+                margin-bottom: 20px;
+            }
 
             &:after {
                 content: "";
@@ -79,17 +87,30 @@ header {
             }
 
             #logo {
-                height: 75px;
-                width: auto;
+                width: 95%;
+                height: auto;
             }
         }
 
+        .contact {
+            @extend .col-6;
+            @extend .col-sm-3;
+            @extend .order-sm-1;
+
+            text-align: center;
+        }
+
         .social-menu {
-            @extend .col-3;
+            @extend .col-6;
+            @extend .col-sm-3;
+            @extend .order-sm-3;
+
+            text-align: center;
 
             ul {
                 @extend .list-inline;
-                float: right;
+
+                margin: 0;
 
                 li {
                     @extend .list-inline-item;
@@ -108,11 +129,13 @@ header {
 
         ul {
             @extend .list-inline;
+
             display: inline-block;
 
             li {
                 @extend .list-inline-item;
-                font-size: 1.1em;
+
+                font-size: calc(12px + .3vmax);
                 font-weight: 400;
                 text-transform: uppercase;
                 letter-spacing: 2px;
@@ -137,24 +160,27 @@ main {
     position: relative;
     background: url(../images/smiling-couple.jpg) no-repeat center center;
     background-size: cover;
-    height: 90%;
+    height: 70%;
     width: 100%;
 
-    .heading {
-        @extend .col-6;
-        @extend .offset-md-6;
-        @extend .offset-lg-6;
-        @extend .offset-xl-6;
+    @include media-breakpoint-up(sm) {
+        height: 90%;
+    }
 
-        padding-right: 10%;
+    .vertical-container {
+        @extend .container;
 
-        h1 {
-            margin-bottom: 25px;
-            font-size: 3.5em;
-        }
+        .heading {
+            @extend .col-6;
+            @extend .offset-6;
 
-        .button {
-            @extend .btn-lg;
+            h1 {
+                margin-bottom: 25px;
+            }
+
+            .button {
+                @extend .btn-lg;
+            }
         }
     }
 }
@@ -170,10 +196,13 @@ footer {
         @extend .row;
 
         .locations-summary {
-            @extend .col-9;
+            @extend .col-12;
+            @extend .col-sm-9;
+            @extend .order-sm-1;
 
             ul {
                 @extend .list-inline;
+
                 columns: 2;
 
                 li {
@@ -205,26 +234,10 @@ footer {
             }
         }
 
-        .social-menu {
-            @extend .col-3;
-            padding: 0;
-
-            ul {
-                @extend .list-inline;
-                float: right;
-
-                li {
-                    @extend .list-inline-item;
-
-                    &:not(:last-child) {
-                        margin-right: 25px;
-                    }
-                }
-            }
-        }
-
         .sitemap {
             @extend .col-12;
+            @extend .order-sm-3;
+
             text-align: center;
             margin-top: 25px;
 
@@ -245,6 +258,35 @@ footer {
                             margin-left: 25px;
                             background: #ccc;
                         }
+                    }
+                }
+            }
+        }
+
+        .social-menu {
+            @extend .col-12;
+            @extend .col-sm-3;
+            @extend .order-sm-2;
+
+            margin-top: 25px;
+            text-align: center;
+
+            @include media-breakpoint-up(sm) {
+                margin-top: 10px;
+            }
+
+            ul {
+                @extend .list-inline;
+
+                @include media-breakpoint-up(sm) {
+                    float: right;
+                }
+
+                li {
+                    @extend .list-inline-item;
+
+                    &:not(:last-child) {
+                        margin-right: 25px;
                     }
                 }
             }
@@ -296,3 +338,4 @@ footer {
         }
     }
 }
+
