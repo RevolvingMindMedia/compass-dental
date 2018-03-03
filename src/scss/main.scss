@@ -14,7 +14,7 @@ p {
 }
 
 a {
-    transition: color 1s;
+    transition: all .5s;
 
     &:hover {
         text-decoration: none;
@@ -36,6 +36,8 @@ h6 {
 .button {
     @extend .btn;
     @extend .btn-outline-primary;
+
+    transition: all .5s;
 }
 
 .vertical-container {
