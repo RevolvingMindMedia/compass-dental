@@ -1,12 +1,9 @@
 var webpack = require('webpack');
 module.exports = {
-  entry: {
-    app: './src/js/app.js',
-    vendors: './src/js/vendors.js'
-  },
+  entry: './src/js/app.js',
   output: {
-      path: __dirname + '/dist',
-      filename: '[name].js',
+      path: __dirname + '/dist/js',
+      filename: 'app.js',
       publicPath: 'dist/'
   },
   module: {

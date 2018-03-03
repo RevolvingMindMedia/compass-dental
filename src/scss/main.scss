@@ -44,35 +44,38 @@ h6 {
 }
 
 header {
+    @extend .container;
 
     .top-menu {
-        @extend .container-fluid;
         @extend .row;
 
-        margin: 10px;
+        margin-top: 15px;
 
         .contact {
-            @extend .col;
-
-            .button {
-                @extend .btn-lg;
-            }
-
+            @extend .col-3;
         }
 
         .branding {
-            @extend .col;
+            @extend .col-6;
             text-align: center;
 
+            &:after {
+                content: "";
+                display: block;
+                height: 1px;
+                width: 100%;
+                margin: 15px 0 0 0;
+                background: #eee;
+            }
+
             #logo {
-                height: 100px;
+                height: 75px;
                 width: auto;
             }
         }
 
         .social-menu {
-            @extend .col;
-            margin-right: 25px;
+            @extend .col-3;
 
             ul {
                 @extend .list-inline;
@@ -90,6 +93,7 @@ header {
     }
 
     nav {
+        margin-top: 20px;
         text-align: center;
 
         ul {
@@ -97,7 +101,9 @@ header {
 
             li {
                 @extend .list-inline-item;
-                font-size: 25px;
+                font-size: 1.1em;
+                text-transform: uppercase;
+                letter-spacing: 2px;
 
                 &:not(:last-child) {
                     &:after {
@@ -106,8 +112,7 @@ header {
                         border-radius: 0.25rem;
                         height: 0.5rem;
                         width: 0.5rem;
-                        margin-right: 5px;
-                        margin-left: 15px;
+                        margin: 0 5px 2px 15px;
                         background: #ccc;
                     }
                 }
@@ -129,8 +134,11 @@ main {
         @extend .offset-lg-6;
         @extend .offset-xl-6;
 
+        padding-right: 10%;
+
         h1 {
             margin-bottom: 25px;
+            font-size: 3.5em;
         }
 
         .button {
@@ -140,15 +148,14 @@ main {
 }
 
 footer {
-    @extend .container-fluid;
+    @extend .container;
 
     .footer-title {
-        margin: 25px;
+        margin: 25px 0;
     }
 
     .footer-content {
         @extend .row;
-        margin: 0 25px;
 
         .locations-summary {
             @extend .col-9;
@@ -188,6 +195,7 @@ footer {
 
         .social-menu {
             @extend .col-3;
+            padding: 0;
 
             ul {
                 @extend .list-inline;
@@ -195,6 +203,10 @@ footer {
 
                 li {
                     @extend .list-inline-item;
+
+                    &:not(:last-child) {
+                        margin-right: 25px;
+                    }
                 }
             }
         }
@@ -211,14 +223,15 @@ footer {
                     @extend .list-inline-item;
 
                     &:not(:last-child) {
-                        margin-right: 50px;
-
                         &:after {
                             content: "";
-                            height: 1px;
-                            width: 90%;
-                            margin: 10px;
-                            background: #eee;
+                            display: inline-block;
+                            border-radius: 0.25rem;
+                            height: 0.5rem;
+                            width: 0.5rem;
+                            margin-right: 10px;
+                            margin-left: 25px;
+                            background: #ccc;
                         }
                     }
                 }
@@ -227,7 +240,7 @@ footer {
     }
 
     .copyright {
-        margin: 25px;
+        margin: 20px;
         text-align: center;
     }
 }
