@@ -156,8 +156,7 @@ header {
     }
 }
 
-main {
-    position: relative;
+main.index {
     background: url(../images/smiling-couple.jpg) no-repeat center center;
     background-size: cover;
     height: 70%;
@@ -173,6 +172,104 @@ main {
         .heading {
             @extend .col-6;
             @extend .offset-6;
+
+            h1 {
+                margin-bottom: 25px;
+            }
+
+            .button {
+                @include media-breakpoint-up(sm) {
+                    padding: 0.5rem 1rem;
+                    font-size: 1.25rem;
+                    line-height: 1.5;
+                    border-radius: 0.3rem;
+                }
+            }
+        }
+    }
+}
+
+main.about {
+    background: #eee;
+
+    .profiles-container {
+        @extend .container;
+
+        .profiles {
+            @extend .row;
+
+            padding: 50px 0;
+
+            .profile {
+                @extend .col-12;
+                @extend .col-lg-4;
+
+                margin: 20px 0;
+
+                .profile-photo {
+                    position: relative;
+                    margin-bottom: -33px;
+                    z-index: 1;
+                    text-align: center;
+
+                    img {
+                        width: 75%;
+                        height: auto;
+                        border: 10px solid $gray-300;
+                        border-radius: 50%;
+                    }
+                }
+
+                .profile-content {
+                    @extend .card;
+
+                    height: 550px;
+                    padding: 50px 20px 20px 20px;
+                    border-radius: .5rem;
+
+                    .name {
+                        @extend .card-title;
+
+                        text-align: center;
+
+                        h1 {
+                            font-size: calc(25px + .4vw);
+
+                            &:after {
+                                content: "";
+                                display: block;
+                                height: 1px;
+                                width: 50%;
+                                margin: 25px 0 15px 25%;
+                                background: #eee;
+                            }
+                        }
+                    }
+
+                    .description {
+                        @extend .card-text;
+                    }
+                }
+            }
+        }
+    }
+}
+
+main.services {
+    background: url(../images/smiling-couple.jpg) no-repeat center center;
+    background-size: cover;
+    height: 70%;
+    width: 100%;
+
+    @include media-breakpoint-up(sm) {
+        height: 90%;
+    }
+
+    .vertical-container {
+        @extend .container;
+
+        .heading {
+            @extend .col-6;
 
             h1 {
                 margin-bottom: 25px;

@@ -3,7 +3,6 @@ require('../scss/main.scss');
 require('font-awesome/css/font-awesome.css');
 
 // JS dependencies
-//import 'jquery';
 import 'bootstrap';
 import 'popper.js';
 
@@ -34,4 +33,11 @@ $(document).on('click', function(e) {
     $('[data-toggle="popover"]').popover('hide');
   }
 });
+
+import photo_1 from '../images/dr_brandon_prusa.jpg';
+import photo_2 from '../images/dr_john_vinckier.jpg';
+import photo_3 from '../images/dr_cody_wilfinger.jpg';
+$('#photo-1').attr('src', photo_1);
+$('#photo-2').attr('src', photo_2);
+$('#photo-3').attr('src', photo_3);
 
