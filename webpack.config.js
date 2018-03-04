@@ -1,4 +1,6 @@
 var webpack = require('webpack');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+
 module.exports = {
   entry: './src/js/app.js',
   output: {
@@ -15,7 +17,7 @@ module.exports = {
             loader: 'url-loader',
             options: {
               limit: 8192,
-              name: 'images/[name].[hash].[ext]'
+              name: 'images/[name].[ext]'
             }
           }
         ]
@@ -34,53 +36,59 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        use: [
-          {
-            loader: 'style-loader',
-            options: {}
-          },
-          {
-            loader: 'css-loader',
-            options: {}
-          }
-        ]
+        use: ExtractTextPlugin.extract({
+          use: [
+            {
+              loader: 'css-loader',
+              options: {
+                minimize: true
+              }
+            }
+          ],
+          fallback: 'style-loader',
+          publicPath: '../'
+        })
       },
       {
         test: /\.(scss|sass)$/,
-        use: [
-          {
-            loader: 'style-loader',
-            options: {}
-          },
-          {
-            loader: 'css-loader',
-            options: {}
-          },
-          {
-			loader: 'postcss-loader', // Run post css actions
-			options: {
-			  plugins: function () { // post css plugins, can be exported to postcss.config.js
-				return [
-				  require('precss'),
-				  require('autoprefixer')
-				];
-			  }
-			}
-		  },
-          {
-            loader: 'sass-loader',
-            options: {}
-          }
-        ]
+        use: ExtractTextPlugin.extract({
+          use: [
+            {
+              loader: 'css-loader',
+              options: {
+                minimize: true
+              }
+            },
+            {
+              loader: 'postcss-loader', // Run post css actions
+              options: {
+                ident: 'postcss',
+                plugins: function () { // post css plugins, can be exported to postcss.config.js
+                  return [
+                    require('precss'),
+                    require('autoprefixer')
+                  ];
+                }
+              }
+            },
+            {
+              loader: 'sass-loader',
+              options: {}
+            }
+          ],
+          fallback: 'style-loader',
+          publicPath: '../'
+        })
       }
     ]
   },
   plugins: [
+    new ExtractTextPlugin('css/styles.css'),
     new webpack.ProvidePlugin({
       $: 'jquery',
       jQuery: 'jquery',
       jquery: 'jquery',
-    })
+    }),
   ]
 }
 
