@@ -2,6 +2,13 @@
 require('../scss/main.scss');
 require('font-awesome/css/font-awesome.css');
 
+// Image dependencies
+import '../images/logo.png';
+import '../images/icon.png';
+import '../images/dr_brandon_prusa.jpg';
+import '../images/dr_john_vinckier.jpg';
+import '../images/dr_cody_wilfinger.jpg';
+
 // JS dependencies
 import 'bootstrap';
 import 'popper.js';
