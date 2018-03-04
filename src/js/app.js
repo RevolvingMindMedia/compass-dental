@@ -2,16 +2,16 @@
 require('../scss/main.scss');
 require('font-awesome/css/font-awesome.css');
 
+// Image dependencies
+import '../images/logo.png';
+import '../images/icon.png';
+import '../images/dr_brandon_prusa.jpg';
+import '../images/dr_john_vinckier.jpg';
+import '../images/dr_cody_wilfinger.jpg';
+
 // JS dependencies
-//import 'jquery';
 import 'bootstrap';
 import 'popper.js';
-
-import logo from '../images/logo.png';
-$('#logo').attr('src', logo);
-
-import icon from '../images/icon.png';
-$('[rel="icon"]').attr('href', icon);
 
 $('#popover-content-location-info').hide();
 $('[data-toggle="popover"]').popover({
@@ -34,4 +34,73 @@ $(document).on('click', function(e) {
     $('[data-toggle="popover"]').popover('hide');
   }
 });
+
+function initMap() {
+  var map = new google.maps.Map(document.getElementById('map'), {
+    zoom: 8,
+    center: new google.maps.LatLng(41.9398963, -87.6422766),
+    mapTypeControl: false,
+    streetViewControl: false,
+    rotateControl: false,
+    fullscreenControl: false
+  });
+
+  var locations = [
+    {name: 'Compass Dental at Lakeview', lat: 41.9398963, lng: -87.6422766, selector: '#lakeview'},
+    {name: 'Compass Dental at Lincoln Square', lat: 41.968805, lng: -87.687942, selector: '#lincoln-square'},
+    {name: 'Compass Dental at Rogers Park', lat: 42.008338, lng: -87.942781, selector: '#rogers-park'},
+    {name: 'Compass Dental at Northbrook', lat: 42.125467, lng: -87.82957, selector: '#northbrook'}
+  ];
+
+  var bounds = new google.maps.LatLngBounds();
+  var activeInfoWindow;
+
+  for (var i = 0; i < locations.length; i++) {
+    var marker = new google.maps.Marker({
+      position: new google.maps.LatLng(locations[i].lat, locations[i].lng),
+      map: map,
+      animation: google.maps.Animation.DROP,
+      title: locations[i].name
+    });
+
+    bounds.extend(marker.position);
+
+    var content = '<div style="color: #333; font-weight: 600; margin-bottom: 10px;">' +
+                    locations[i].name +
+                  '</div>' +
+                  '<div style="margin-bottom: 5px;">' +
+                    $(locations[i].selector).find('.address').html() +
+                  '</div>' +
+                  '<div style="margin-bottom: 10px;">' +
+                    '<a href="https://www.google.com/maps/dir/?api=1&destination=' +
+                        $(locations[i].selector).find('.address').html().replace('<br>', '') +
+                        '" target="_blank">Directions</a>' +
+                  '</div>' +
+                  '<div style="margin-bottom: 5px;">' +
+                    '<span style="font-weight: 500">Phone:</span> ' +
+                    $(locations[i].selector).find('.phone-number').html() +
+                  '</div>' +
+                  '<div style="margin-bottom: 10px;">' +
+                    '<span style="font-weight: 500">Hours:</span> ' +
+                    $(locations[i].selector).find('.hours').html() +
+                  '</div>' +
+                  '<aside style="font-size: 12px">*Every other Saturday</aside>';
+
+    marker.info = new google.maps.InfoWindow({
+      content: content
+    });
+
+    google.maps.event.addListener(marker, 'click', function() {
+      if (activeInfoWindow) {
+        activeInfoWindow.close();
+      }
+      this.info.open(map, this);
+      activeInfoWindow = this.info;
+    });
+  }
+
+  map.fitBounds(bounds);
+}
+
+window.initMap = initMap;
 

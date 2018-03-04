@@ -86,7 +86,7 @@ header {
                 background: #eee;
             }
 
-            #logo {
+            img {
                 width: 95%;
                 height: auto;
             }
@@ -98,6 +98,11 @@ header {
             @extend .order-sm-1;
 
             text-align: center;
+
+            @include media-breakpoint-up(sm) {
+                text-align: left;
+                padding-left: 30px;
+            }
         }
 
         .social-menu {
@@ -111,6 +116,11 @@ header {
                 @extend .list-inline;
 
                 margin: 0;
+
+                @include media-breakpoint-up(sm) {
+                    float: right;
+                    padding-right: 20px;
+                }
 
                 li {
                     @extend .list-inline-item;
@@ -156,8 +166,7 @@ header {
     }
 }
 
-main {
-    position: relative;
+main.index {
     background: url(../images/smiling-couple.jpg) no-repeat center center;
     background-size: cover;
     height: 70%;
@@ -190,11 +199,203 @@ main {
     }
 }
 
+main.about {
+    background: #eee;
+
+    .profiles-container {
+        @extend .container;
+
+        .profiles {
+            @extend .row;
+
+            padding: 50px 0;
+
+            .profile {
+                @extend .col-12;
+                @extend .col-lg-4;
+
+                margin: 20px 0;
+
+                .profile-photo {
+                    position: relative;
+                    margin-bottom: -125px;
+                    z-index: 1;
+                    text-align: center;
+
+                    img {
+                        width: 75%;
+                        height: auto;
+                        border: 10px solid $gray-300;
+                        border-radius: 50%;
+                    }
+                }
+
+                .profile-content {
+                    @extend .card;
+
+                    height: 650px;
+                    padding: 150px 20px 20px 20px;
+                    border-radius: .5rem;
+
+                    .name {
+                        @extend .card-title;
+
+                        text-align: center;
+
+                        h1 {
+                            font-size: calc(25px + .4vw);
+
+                            &:after {
+                                content: "";
+                                display: block;
+                                height: 1px;
+                                width: 50%;
+                                margin: 25px 0 15px 25%;
+                                background: #eee;
+                            }
+                        }
+                    }
+
+                    .description {
+                        @extend .card-text;
+                    }
+                }
+            }
+        }
+    }
+}
+
+main.services {
+    background: url(../images/smiling-family.jpg) no-repeat center center;
+    background-size: cover;
+    height: 70%;
+    width: 100%;
+
+    @include media-breakpoint-up(sm) {
+        height: 90%;
+    }
+
+    .vertical-container {
+        @extend .container;
+
+        .heading {
+            @extend .col-6;
+
+            h1 {
+                margin-bottom: 25px;
+            }
+
+            ul {
+                @extend .list-unstyled;
+
+                margin-bottom: 25px;
+
+                li {
+                    font-size: 20px;
+                    margin: 10px 0;
+                    margin-left: 1.6em;
+
+                    &:before {
+                      content: "\f00c";
+                      color: $primary;
+                      font-family: FontAwesome;
+                      display: inline-block;
+                      margin-left: -1.6em;
+                      width: 1.6em;
+                    }
+                }
+            }
+
+            .button {
+                @include media-breakpoint-up(sm) {
+                    padding: 0.5rem 1rem;
+                    font-size: 1.25rem;
+                    line-height: 1.5;
+                    border-radius: 0.3rem;
+                }
+            }
+        }
+    }
+}
+
+main.locations {
+    background: #f9f9f9;
+    padding: 50px 0;
+
+    .locations-container {
+        @extend .container;
+
+        .map {
+            @extend .col-12;
+
+            #map {
+                height: 300px;
+                width: 100%;
+            }
+        }
+
+        .locations {
+            @extend .col-12;
+
+            margin-top: 50px;
+            color: $gray-700;
+
+            ul {
+                @extend .list-unstyled;
+
+                margin-bottom: 30px;
+
+                li {
+                    @extend .row;
+
+                    &:not(:last-child):after {
+                        content: "";
+                        display: block;
+                        height: 1px;
+                        width: 100%;
+                        margin: 12px;
+                        background: #ddd;
+
+                        @include media-breakpoint-up(sm) {
+                            margin: 10px;
+                        }
+                    }
+
+                    .name {
+                        @extend .col-12;
+                        @extend .col-lg-3;
+
+                        font-weight: 400;
+                    }
+
+                    .address {
+                        @extend .col-12;
+                        @extend .col-lg-3;
+
+                    }
+
+                    .phone-number {
+                        @extend .col-12;
+                        @extend .col-lg-3;
+
+                    }
+
+                    .hours {
+                        @extend .col-12;
+                        @extend .col-lg-3;
+
+                    }
+                }
+            }
+        }
+    }
+}
+
 footer {
     @extend .container;
 
     .footer-title {
-        margin: 25px 0;
+        margin: 50px 0;
     }
 
     .footer-content {
