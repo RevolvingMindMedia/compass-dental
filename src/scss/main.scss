@@ -119,6 +119,7 @@ header {
 
                 @include media-breakpoint-up(sm) {
                     float: right;
+                    padding-right: 20px;
                 }
 
                 li {
@@ -284,6 +285,27 @@ main.services {
                 margin-bottom: 25px;
             }
 
+            ul {
+                @extend .list-unstyled;
+
+                margin-bottom: 25px;
+
+                li {
+                    font-size: 20px;
+                    margin: 10px 0;
+                    margin-left: 1.6em;
+
+                    &:before {
+                      content: "\f00c";
+                      color: $primary;
+                      font-family: FontAwesome;
+                      display: inline-block;
+                      margin-left: -1.6em;
+                      width: 1.6em;
+                    }
+                }
+            }
+
             .button {
                 @include media-breakpoint-up(sm) {
                     padding: 0.5rem 1rem;
@@ -373,7 +395,7 @@ footer {
     @extend .container;
 
     .footer-title {
-        margin: 25px 0;
+        margin: 50px 0;
     }
 
     .footer-content {
