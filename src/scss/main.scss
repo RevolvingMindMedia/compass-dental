@@ -353,7 +353,7 @@ main.locations {
                         display: block;
                         height: 1px;
                         width: 100%;
-                        margin: 12px;
+                        margin: 15px;
                         background: #ddd;
 
                         @include media-breakpoint-up(sm) {
@@ -363,27 +363,41 @@ main.locations {
 
                     .name {
                         @extend .col-12;
-                        @extend .col-lg-3;
+                        @extend .col-lg-4;
 
                         font-weight: 400;
+                        margin-bottom: 10px;
+
+                        @include media-breakpoint-up(sm) {
+                            margin-bottom: 0;
+                        }
                     }
 
                     .address {
                         @extend .col-12;
                         @extend .col-lg-3;
 
+                        margin-bottom: 10px;
+
+                        @include media-breakpoint-up(sm) {
+                            margin-bottom: 0;
+                        }
                     }
 
                     .phone-number {
                         @extend .col-12;
-                        @extend .col-lg-3;
+                        @extend .col-lg-2;
 
+                        margin-bottom: 10px;
+
+                        @include media-breakpoint-up(sm) {
+                            margin-bottom: 0;
+                        }
                     }
 
                     .hours {
                         @extend .col-12;
                         @extend .col-lg-3;
-
                     }
                 }
             }

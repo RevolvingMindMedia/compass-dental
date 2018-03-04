@@ -69,11 +69,11 @@ function initMap() {
                     locations[i].name +
                   '</div>' +
                   '<div style="margin-bottom: 5px;">' +
-                    $(locations[i].selector).find('.address').html() +
+                    $(locations[i].selector).find('.address').find('a').html() +
                   '</div>' +
                   '<div style="margin-bottom: 10px;">' +
-                    '<a href="https://www.google.com/maps/dir/?api=1&destination=' +
-                        $(locations[i].selector).find('.address').html().replace('<br>', '') +
+                    '<a href="' +
+                        $(locations[i].selector).find('.address').find('a').attr('href') +
                         '" target="_blank">Directions</a>' +
                   '</div>' +
                   '<div style="margin-bottom: 5px;">' +
