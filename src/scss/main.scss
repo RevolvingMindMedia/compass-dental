@@ -98,6 +98,10 @@ header {
             @extend .order-sm-1;
 
             text-align: center;
+
+            @include media-breakpoint-up(sm) {
+                text-align: left;
+            }
         }
 
         .social-menu {
@@ -111,6 +115,10 @@ header {
                 @extend .list-inline;
 
                 margin: 0;
+
+                @include media-breakpoint-up(sm) {
+                    float: right;
+                }
 
                 li {
                     @extend .list-inline-item;
@@ -208,7 +216,7 @@ main.about {
 
                 .profile-photo {
                     position: relative;
-                    margin-bottom: -33px;
+                    margin-bottom: -125px;
                     z-index: 1;
                     text-align: center;
 
@@ -223,8 +231,8 @@ main.about {
                 .profile-content {
                     @extend .card;
 
-                    height: 550px;
-                    padding: 50px 20px 20px 20px;
+                    height: 650px;
+                    padding: 150px 20px 20px 20px;
                     border-radius: .5rem;
 
                     .name {
