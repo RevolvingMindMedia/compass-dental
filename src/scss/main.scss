@@ -11,6 +11,7 @@ html, body {
 }
 
 p {
+    color: $gray-600;
 }
 
 a {
@@ -313,6 +314,61 @@ main.services {
                     line-height: 1.5;
                     border-radius: 0.3rem;
                 }
+            }
+        }
+    }
+}
+
+section.service-details {
+    @extend .container;
+
+    padding: 100px 0 75px 0;
+
+    #accordion {
+        @extend .list-unstyled;
+
+        padding: 0;
+        margin: 0;
+
+        .service {
+            width: 100%;
+            border: 1px solid #eee;
+            border-width: 1px 0 0 0;
+
+            &:last-child {
+                border-width: 1px 0;
+            }
+
+            .service-heading {
+                padding: 25px 0;
+
+                &:hover {
+                    cursor: pointer;
+                }
+
+                span {
+                    color: $gray-700;
+                    font-size: 25px;
+                    font-weight: 400;
+                    margin-left: 25px;
+
+                    &:before {
+                        content: "\f105";
+                        color: $gray-400;
+                        font-family: FontAwesome;
+                        display: inline-block;
+                        margin-right: 25px;
+                        transition: all .2s;
+                    }
+
+                    &.rotate-icon:before {
+                        transform: rotate(90deg);
+                    }
+                }
+            }
+
+            .service-description {
+                padding: 25px;
             }
         }
     }
