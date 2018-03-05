@@ -13,6 +13,8 @@ import '../images/dr_cody_wilfinger.jpg';
 import 'bootstrap';
 import 'popper.js';
 
+// Popover for menu bar
+
 $('#popover-content-location-info').hide();
 $('[data-toggle="popover"]').popover({
   container: 'body',
@@ -34,6 +36,8 @@ $(document).on('click', function(e) {
     $('[data-toggle="popover"]').popover('hide');
   }
 });
+
+// Google Map for locations.html
 
 function initMap() {
   var map = new google.maps.Map(document.getElementById('map'), {
@@ -103,4 +107,12 @@ function initMap() {
 }
 
 window.initMap = initMap;
+
+// Arrow animation for accordion on services.html
+
+$('.service-heading').click(function() {
+  var current_icon = $(this).find('span');
+  $('span.rotate-icon').not(current_icon).removeClass('rotate-icon');
+  current_icon.toggleClass('rotate-icon');
+});
 
