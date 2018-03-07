@@ -106,30 +106,15 @@ header {
             }
         }
 
-        .social-menu {
+        .reviews {
             @extend .col-6;
             @extend .col-sm-3;
             @extend .order-sm-3;
 
             text-align: center;
 
-            ul {
-                @extend .list-inline;
-
-                margin: 0;
-
-                @include media-breakpoint-up(sm) {
-                    float: right;
-                    padding-right: 20px;
-                }
-
-                li {
-                    @extend .list-inline-item;
-
-                    &:not(:last-child) {
-                        margin-right: 25px;
-                    }
-                }
+            @include media-breakpoint-up(sm) {
+                text-align: right;
             }
         }
     }
@@ -201,7 +186,29 @@ main.index {
 }
 
 main.about {
-    background: #eee;
+    padding: 50px 0;
+
+    @include media-breakpoint-up(sm) {
+        padding: 75px 0 100px 0;
+    }
+
+    .summary-container {
+        @extend .container;
+
+        .summary {
+            @extend .col;
+
+            h1 {
+                font-size: calc(20px + 1vmax);
+                margin-bottom: 50px;
+                text-align: center;
+            }
+        }
+    }
+}
+
+section.profiles {
+    background: url(../images/dust_scratches.png) repeat;
 
     .profiles-container {
         @extend .container;
@@ -464,8 +471,14 @@ main.locations {
 footer {
     @extend .container;
 
+    text-align: center;
+
     .footer-title {
-        margin: 50px 0;
+        margin: 50px 0 40px 0;
+
+        h3 {
+            font-size: calc(15px + 1vmax);
+        }
     }
 
     .footer-content {
@@ -473,7 +486,6 @@ footer {
 
         .locations-summary {
             @extend .col-12;
-            @extend .col-sm-9;
             @extend .order-sm-1;
 
             ul {
@@ -498,13 +510,32 @@ footer {
                     }
 
                     .location {
-                        display: inline-block;
+                        display: block;
                         font-weight: 400;
 
                     }
 
                     .phone-number {
                         display: inline-block;
+                    }
+
+                    .yelp-link {
+                        display: inline-block;
+
+                        &:before {
+                            content: "";
+                            display: inline-block;
+                            border-radius: 0.2rem;
+                            height: 0.4rem;
+                            width: 0.4rem;
+                            margin-left: 10px;
+                            background: #ccc;
+                        }
+
+                        a {
+                            margin-left: 15px;
+                        }
+
                     }
                 }
             }
@@ -543,34 +574,6 @@ footer {
             }
         }
 
-        .social-menu {
-            @extend .col-12;
-            @extend .col-sm-3;
-            @extend .order-sm-2;
-
-            margin-top: 25px;
-            text-align: center;
-
-            @include media-breakpoint-up(sm) {
-                margin-top: 10px;
-            }
-
-            ul {
-                @extend .list-inline;
-
-                @include media-breakpoint-up(sm) {
-                    float: right;
-                }
-
-                li {
-                    @extend .list-inline-item;
-
-                    &:not(:last-child) {
-                        margin-right: 25px;
-                    }
-                }
-            }
-        }
     }
 
     .copyright {
