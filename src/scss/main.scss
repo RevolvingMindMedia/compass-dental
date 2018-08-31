@@ -241,17 +241,8 @@ section.profiles {
                 .profile-content {
                     @extend .card;
 
-                    height: 550px;
                     padding: 150px 20px 20px 20px;
                     border-radius: .5rem;
-
-                    @include media-breakpoint-up(lg) {
-                        height: 800px;
-                    }
-
-                    @include media-breakpoint-up(xl) {
-                        height: 650px;
-                    }
 
                     .name {
                         @extend .card-title;
@@ -260,21 +251,96 @@ section.profiles {
 
                         h1 {
                             font-size: calc(25px + .4vw);
-
-                            &:after {
-                                content: "";
-                                display: block;
-                                height: 1px;
-                                width: 50%;
-                                margin: 25px 0 15px 25%;
-                                background: #eee;
-                            }
                         }
                     }
 
-                    .description {
-                        @extend .card-text;
+                    .profile-button {
+                        @extend .btn;
+                        @extend .btn-outline-primary;
+
+                        margin-top: 20px;
                     }
+                }
+            }
+        }
+    }
+}
+
+main.profile {
+    background: url(../images/dust_scratches.png) repeat;
+
+    .profile-container {
+        @extend .container;
+
+        .profile {
+            @extend .row;
+
+            margin: 20px 0;
+            padding: 50px 0;
+
+            .profile-photo {
+                @extend .col-12;
+                @extend .col-lg-4;
+
+                position: relative;
+                margin-bottom: -125px;
+                z-index: 1;
+                text-align: center;
+
+                img {
+                    width: 75%;
+                    height: auto;
+                    border: 10px solid $gray-300;
+                    border-radius: 50%;
+
+                    @include media-breakpoint-up(lg) {
+                        width: 90%;
+                    }
+                }
+            }
+
+            .profile-content {
+                @extend .col-12;
+                @extend .col-lg-8;
+                @extend .card;
+
+                padding: 150px 20px 20px 20px;
+                border-radius: .5rem;
+
+                @include media-breakpoint-up(lg) {
+                    padding: 40px 20px 20px 20px;
+                }
+
+                .name {
+                    @extend .card-title;
+
+                    text-align: center;
+
+                    @include media-breakpoint-up(lg) {
+                        text-align: left;
+                    }
+
+                    h1 {
+                        font-size: calc(25px + .4vw);
+
+                        &:after {
+                            content: "";
+                            display: block;
+                            height: 1px;
+                            width: 50%;
+                            margin: 25px 0 15px 25%;
+                            background: #eee;
+
+                            @include media-breakpoint-up(lg) {
+                                width: 100%;
+                                margin: 25px 0 15px 0;
+                            }
+                        }
+                    }
+                }
+
+                .description {
+                    @extend .card-text;
                 }
             }
         }

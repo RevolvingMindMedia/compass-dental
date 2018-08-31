@@ -6,7 +6,7 @@ require('font-awesome/css/font-awesome.css');
 import '../images/logo.png';
 import '../images/icon.png';
 import '../images/dr_brandon_prusa.jpg';
-import '../images/dr_john_vinckier.jpg';
+import '../images/dr_kyle_fairbanks.jpg';
 import '../images/dr_cody_wilfinger.jpg';
 
 // JS dependencies
