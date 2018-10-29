@@ -12,6 +12,9 @@ permissions:
      type:
        - file
 hooks:
+   BeforeInstall:
+    - location: .codedeploy/cleanup.sh
+      runas: root
    AfterInstall:
     - location: .codedeploy/webpack.sh
       runas: root
