@@ -52,7 +52,7 @@ function initMap() {
   var locations = [
     {name: 'Compass Dental at Lakeview', lat: 41.9398963, lng: -87.6422766, selector: '#lakeview'},
     {name: 'Compass Dental at Lincoln Square', lat: 41.968805, lng: -87.687942, selector: '#lincoln-square'},
-    {name: 'Compass Dental at Rogers Park', lat: 42.008338, lng: -87.942781, selector: '#rogers-park'},
+    {name: 'Compass Dental at Rogers Park', lat: 42.012226, lng: -87.698552, selector: '#rogers-park'},
     {name: 'Compass Dental at Northbrook', lat: 42.125467, lng: -87.82957, selector: '#northbrook'}
   ];
 
